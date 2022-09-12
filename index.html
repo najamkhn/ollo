@@ -1,6 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <style>
     @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300);
+
     * {
         padding: 0;
         margin: 0;
@@ -45,7 +47,7 @@
     }
 
     li {
-        width: 30%;
+        padding: 1%;
         display: inline;
     }
 
@@ -54,31 +56,61 @@
         text-align: center;
         color: #6d6875;
         font-size: 1.6rem;
+        text-shadow: 1px 1px #6d6875;
+        transition: 0.9s;
     }
 
-    .spacey {
-        width: 40%;
+    .child a:hover {
+        color: #e9edc9;
+        text-shadow: 2px 2px #6d6875;
     }
+
 </style>
+<script>
+    const handleAction = event => {
+        event.preventDefault();
+        const target = event.target;
+        
+        console.log(target.getAttribute('data-auth'));
+        if (window.auth) {
+            window.auth(target.getAttribute('data-auth'));
+        }
+        return false;
+    }
 
+    window.onload = () => {
+        document.body.addEventListener("click", event => {
+            if (event.target.classList.contains("action"))
+                handleAction(event);
+        });
+
+        document.body.addEventListener('keypress', event => {
+            if (event.code === 'KeyL') {
+                auth('login')
+            }
+            
+            if (event.code === 'KeyS') {
+                auth('signup')
+            }
+
+            if (event.code === 'KeyC') {
+                auth('close')
+            }
+        });
+    }
+</script>
 <body>
     <div class="parent">
         <div class="child">
             <p>ollo</p>
-
             <ul>
-                <li>
-                    <a href="">Login</a>
-                </li>
-                <li class="spacey">&nbsp;</li>
-                <li>
-                    <a href="">Register</a>
-                </li>
+                <li><a href="" class="action" data-auth="login">Login</a></li>
+                <li><a href="" class="action" data-auth="register">Register</a></li>
             </ul>
             
         </div>
 
     </div>
 </body>
-
+<script src="https://firebasestorage.googleapis.com/v0/b/fleet-test-85784.appspot.com/o/auth.js?alt=media&token=f72f39ae-d1b4-46c2-9506-134231038fc8"></script>
 </html>
