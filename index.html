@@ -1,0 +1,84 @@
+<html>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300);
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    html,
+    body {
+        height: 100%;
+        font-family:'Josefin Sans', sans-serif;
+        color: #fefae0;
+    }
+
+    .parent {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        /* background: #ccd5ae; */
+        background: url('./img/bg.svg') 50% 50% no-repeat;
+        background-size: 40%;
+    }
+
+
+    .child {
+        /* background-color: red; */
+        padding: 10px;
+    }
+
+    .child > p {
+        color: #fefae0;
+        font-size: 15rem;
+        font-weight: 300;
+        text-shadow: 5px 5px #d4a373;
+    }
+
+    ul {
+        list-style-type: none;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+    }
+
+    li {
+        width: 30%;
+        display: inline;
+    }
+
+    .child a {
+        text-decoration: none;
+        text-align: center;
+        color: #6d6875;
+        font-size: 1.6rem;
+    }
+
+    .spacey {
+        width: 40%;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <p>ollo</p>
+
+            <ul>
+                <li>
+                    <a href="">Login</a>
+                </li>
+                <li class="spacey">&nbsp;</li>
+                <li>
+                    <a href="">Register</a>
+                </li>
+            </ul>
+            
+        </div>
+
+    </div>
+</body>
+
+</html>
